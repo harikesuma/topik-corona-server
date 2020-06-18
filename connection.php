@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost","root","","topik-corona");
+$mysqli = new mysqli("localhost","root","","db_topik_covid_bali");
 
 // Check connection
 if ($mysqli -> connect_errno) {
