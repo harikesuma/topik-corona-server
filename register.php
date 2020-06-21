@@ -35,6 +35,7 @@
             "id" => $resultId,
             "name" => $resultName,
             "gender" => $resultGender,
+            "email" => $email,
             "address" => $resultAddress
         ];
 
