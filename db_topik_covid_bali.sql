@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v12.4.3 (64 bit)
+SQLyog Ultimate v12.5.1 (64 bit)
 MySQL - 10.4.11-MariaDB : Database - db_topik_covid_bali
 *********************************************************************
 */
@@ -27,9 +27,12 @@ CREATE TABLE `tb_admin` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_admin` */
+
+insert  into `tb_admin`(`id`,`nama`,`username`,`email`,`password`) values 
+(16,'Admin','admin','admin@email.com','$2y$10$OGZaQoaKYPK3ya0KqebQEOxKQyWUkJjYC3QYaeCeJA0.krVfCiJm2');
 
 /*Table structure for table `tb_gejala` */
 
@@ -85,16 +88,20 @@ DROP TABLE IF EXISTS `tb_news`;
 CREATE TABLE `tb_news` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `admin_id` int(5) DEFAULT NULL,
+  `judul` varchar(255) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL,
   `foto` text DEFAULT NULL,
   `click` int(10) DEFAULT NULL,
-  `tanggal` datetime DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `admin_id` (`admin_id`),
   CONSTRAINT `tb_news_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `tb_admin` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_news` */
+
+insert  into `tb_news`(`id`,`admin_id`,`judul`,`deskripsi`,`foto`,`click`,`tanggal`) values 
+(1,16,'Ada Monyet Nyangkut di Pohon Pisang Goreng Keju','Ini Deskripsi Ya Bambang','https://res.cloudinary.com/randomize721/image/upload/v1592911004/ayr9mogcthgaakebr3wr.jpg',0,'2020-06-23');
 
 /*Table structure for table `tb_sebaran_pasien` */
 
