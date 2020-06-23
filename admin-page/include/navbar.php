@@ -23,7 +23,7 @@
             </div>
           </li>
           <li><a href="index.php"><i class="material-icons">dashboard</i>Dashboard</a></li>
-          <li><a href="#"><i class="material-icons">local_hospital</i>Manajemn Data Covid-19</a></li>
+          <li><a href="covid.php"><i class="material-icons">local_hospital</i>Manajemn Data Covid-19</a></li>
           <li><a href="berita.php"><i class="material-icons">forum</i>Berita</a></li>
           <div class="hide-on-large-only"><li><a href="action/logout.php"><i class="material-icons">power_settings_new</i>Logout</a></li></div>
           </ul>

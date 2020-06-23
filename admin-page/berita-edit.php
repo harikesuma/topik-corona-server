@@ -1,6 +1,6 @@
 <?php include 'include/head1.php';?>
 
-  <title>Tambah Berita - Covid-19 di Bali</title>
+  <title>Edit Berita - Covid-19 di Bali</title>
 
 <?php include 'include/head2.php'; ?>
 
