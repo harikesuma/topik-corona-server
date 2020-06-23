@@ -42,9 +42,24 @@ CREATE TABLE `tb_gejala` (
   PRIMARY KEY (`id`),
   KEY `kategori_gejala_id` (`kategori_gejala_id`),
   CONSTRAINT `tb_gejala_ibfk_1` FOREIGN KEY (`kategori_gejala_id`) REFERENCES `tb_kategori_gejala` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_gejala` */
+
+insert  into `tb_gejala`(`id`,`kategori_gejala_id`,`gejala`) values 
+(1,1,'demam'),
+(2,1,'batuk kering'),
+(3,1,'kelelahan'),
+(4,2,'sakit dan nyeri'),
+(5,2,'sakit tenggorokan'),
+(6,2,'diare'),
+(7,2,'konjungtivitis'),
+(8,2,'sakit kepala'),
+(9,2,'kehilangan kemampuan mencium bau'),
+(10,2,'ruam pada kulit atau perubahan warna jari tangan atau kaki'),
+(11,3,'kesulitan bernafas'),
+(12,3,'nyeri atau tekanan di dada'),
+(13,3,'kehilangan bicara dan bergerak');
 
 /*Table structure for table `tb_kategori_gejala` */
 
@@ -54,9 +69,14 @@ CREATE TABLE `tb_kategori_gejala` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `kategori` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_kategori_gejala` */
+
+insert  into `tb_kategori_gejala`(`id`,`kategori`) values 
+(1,'umum'),
+(2,'kurang umum'),
+(3,'serius');
 
 /*Table structure for table `tb_news` */
 
@@ -111,9 +131,14 @@ CREATE TABLE `tb_user` (
   `jenis_kelamin` enum('P','W') DEFAULT NULL,
   `alamat` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_user` */
+
+insert  into `tb_user`(`id`,`nama`,`email`,`password`,`jenis_kelamin`,`alamat`) values 
+(2,'hari kesuma 78','hari@gmail.com','$2y$10$nMO73WcmvWTVyMcN92b/CuwGic5HSsc8e6KK3H2RUaOeeLthBnSAS','P','jl. sakura'),
+(3,'omang','omang@gmail.com','$2y$10$AX2giPBApsxUElHIMZUI8.UKH75IWCDoE2PAGI5mfWaQlvL.0BmrW','W','jl. gunung soputan'),
+(6,'ansela','ansel@gmail.com','$2y$10$3YuvUOqZjlFsGkqCDcgjyOSGTMNVyVAh/CQSs9UiK21Ij8u7Gq54u','W','jl. sentana');
 
 /*Table structure for table `tb_user_gejala` */
 
@@ -129,9 +154,70 @@ CREATE TABLE `tb_user_gejala` (
   KEY `gejala_id` (`gejala_id`),
   CONSTRAINT `tb_user_gejala_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`),
   CONSTRAINT `tb_user_gejala_ibfk_2` FOREIGN KEY (`gejala_id`) REFERENCES `tb_gejala` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_user_gejala` */
+
+insert  into `tb_user_gejala`(`id`,`user_id`,`gejala_id`,`tanggal`) values 
+(3,2,9,NULL),
+(5,2,7,NULL),
+(7,2,4,NULL),
+(9,2,2,NULL),
+(10,2,3,NULL),
+(11,2,4,NULL),
+(13,2,7,NULL),
+(15,2,4,NULL),
+(16,2,5,NULL),
+(18,2,6,NULL),
+(21,2,11,NULL),
+(23,2,11,NULL),
+(25,2,5,NULL),
+(26,2,10,NULL),
+(28,2,10,NULL),
+(29,2,1,NULL),
+(30,2,2,NULL),
+(31,2,4,NULL),
+(32,2,5,NULL),
+(33,2,6,NULL),
+(34,2,7,NULL),
+(35,2,8,NULL),
+(36,2,5,NULL),
+(37,2,6,NULL),
+(38,2,7,NULL),
+(40,2,2,NULL),
+(41,2,3,NULL),
+(42,2,4,NULL),
+(43,2,1,NULL),
+(44,2,2,NULL),
+(45,2,3,NULL),
+(46,2,4,NULL),
+(47,2,1,NULL),
+(48,2,2,NULL),
+(49,2,3,NULL),
+(50,2,4,NULL),
+(51,2,1,NULL),
+(52,2,2,NULL),
+(53,2,3,NULL),
+(54,2,4,NULL),
+(55,2,7,NULL),
+(56,2,8,NULL),
+(57,2,7,NULL),
+(58,2,8,NULL),
+(59,2,10,'2020-06-21'),
+(60,2,11,'2020-06-21'),
+(61,2,8,'2020-06-21'),
+(62,2,10,'2020-06-21'),
+(63,2,8,'2020-06-21'),
+(64,2,9,'2020-06-21'),
+(65,2,9,'2020-06-21'),
+(66,2,10,'2020-06-21'),
+(67,2,11,'2020-06-21'),
+(68,2,9,'2020-06-21'),
+(69,2,12,'2020-06-21'),
+(70,2,13,'2020-06-21'),
+(71,6,7,'2020-06-21'),
+(72,6,8,'2020-06-21'),
+(73,6,9,'2020-06-21');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

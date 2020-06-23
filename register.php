@@ -1,6 +1,8 @@
 <?php
     require_once('connection.php');
 
+    $response = array();
+
     if(isset($_POST['email'], $_POST['password'], $_POST['name'], $_POST['address'], $_POST['gender'])){
         $email = $_POST['email'];
         $hash_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -29,9 +31,10 @@
         $stmt->fetch();
         $stmt->close();
 
-        $respone = [
-            "status_code" => 200,
-            "message" => "success",
+
+        $response["status_code"] = 200;
+        $response["message"] = "Fetch Berhasil";
+        $response["data"] = [
             "id" => $resultId,
             "name" => $resultName,
             "gender" => $resultGender,
@@ -39,9 +42,12 @@
             "address" => $resultAddress
         ];
 
-        echo json_encode($respone);
+        echo json_encode($response);
 
 
-    }else{
-        echo "Post Data Null";
-    }
+    } else {
+
+        $response["status_code"] = 400;
+        $response["message"] = $mysqli->error;
+        $response["data"] = null;
+}
