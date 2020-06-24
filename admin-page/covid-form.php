@@ -20,7 +20,7 @@
     }
   </style>
 
-<!-- <?php include 'include/navbar.php';?> -->
+<?php include 'include/navbar.php';?>
 
 <!-- CONTENT START HERE -->
 
