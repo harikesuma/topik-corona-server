@@ -19,7 +19,7 @@
 
         if($result_id == null){
             $response = [
-                "code" => 100,
+                "status_code" => 100,
                 "Message" => "Tidak Ada User",
             ];
 
